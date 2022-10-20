@@ -12,7 +12,7 @@ export const launchDB = async() => {
 
     return await connectToDatabase()
         .then(() => {
-            app.use(express.static(path.join(__dirname, '../../client/build')));
+            app.use(express.static(path.join(__dirname, '../client/build')));
             app.use('/api/superheroes', superheroesRouter)
 
             return app.listen(port, () => {
