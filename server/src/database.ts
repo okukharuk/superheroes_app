@@ -1,20 +1,19 @@
-import cors from "cors";
 import express from "express";
+import path from "path";
+import * as dotenv from "dotenv";
 import { superheroesRouter } from "./routes/superheroes.router";
 import { connectToDatabase } from "./services/db.service";
 
 export const app = express();
-const corsOptions = {
-    origin: 'http://localhost:3000',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
 
 export const launchDB = async() => {
-    const port = 3000; // default port to listen
+    dotenv.config();
+    const port = process.env.PORT || 8080; // default port to listen
 
     return await connectToDatabase()
         .then(() => {
-            app.use("/api/superheroes", cors(corsOptions) ,superheroesRouter);
+            app.use(express.static(path.join(__dirname, '../../client/build')));
+            app.use('/api/superheroes', superheroesRouter)
 
             return app.listen(port, () => {
                 console.log(`Server started at http://localhost:${port}`);

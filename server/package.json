@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cross-env DB_NAME=test_superheroes jest --testTimeout=5000",
-    "start:dev": "nodemon"
+    "start": "ts-node ./src/index.ts"
   },
   "keywords": [],
   "author": "",
