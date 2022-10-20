@@ -38,7 +38,7 @@ superheroesRouter.post("/", async (req: Request, res: Response) => {
         const result = await collections.superheroes?.insertOne(newSuperhero);
 
         result
-            ? res.status(201).send(`Successfully created a new superhero with name ${newSuperhero.nickname}`)
+            ? res.status(201).send(JSON.parse(`{"response": "Successfully created a new superhero with name ${newSuperhero.nickname}"}`))
             : res.status(500).send("Failed to create a new superhero.");
     } catch (error: any) {
         console.error(error);
@@ -56,7 +56,7 @@ superheroesRouter.put("/:name", async (req: Request, res: Response) => {
         const result = await collections.superheroes?.updateOne(query, { $set: {...updatedSuperhero} });
 
         result
-            ? res.status(200).send(`Successfully updated superhero with name ${name}`)
+            ? res.status(200).send(JSON.parse(`Successfully updated superhero with name ${name}`))
             : res.status(304).send(`Superhero with name: ${name} not updated`);
     } catch (error: any) {
         console.error(error.message);

@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: Marvel;
+        font-weight: 400;
+        src: url("../src/public/fonts/Marvel-Regular.ttf");
+    }
+    @font-face {
+        font-family: Marvel;
+        font-weight: 600;
+        src: url("../src/public/fonts/Marvel-Bold.ttf");
+    }
+    @font-face {
+        font-family: Marvel;
+        font-weight: 400;
+        font-style: italic;
+        src: url("../src/public/fonts/Marvel-Italic.ttf");
+    }
+    @font-face {
+        font-family: Marvel;
+        font-weight: 600;
+        font-style: italic;
+        src: url("../src/public/fonts/Marvel-BoldItalic.ttf");
+    }
+}
+
+@layer utilities {
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+}
