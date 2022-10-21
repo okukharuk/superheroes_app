@@ -4,7 +4,7 @@ export default {
   moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
 
   roots: ["<rootDir>/src"],
-
+  modulePathIgnorePatterns: ["<rootDir>/build"],
   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",

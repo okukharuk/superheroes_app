@@ -4,7 +4,7 @@ import { ISuperhero } from "../models/ISuperhero";
 
 export const superheroAPI = createApi({
     reducerPath: 'superheroAPI',
-    baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:3000/api'}),
+    baseQuery: fetchBaseQuery({baseUrl: '/api'}),
     tagTypes: ['Superhero'],
     endpoints: (build) => ({
         getSuperheroes: build.query<ISuperhero[], string>({
