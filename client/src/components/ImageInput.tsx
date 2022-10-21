@@ -9,10 +9,8 @@ const ImageInput: React.FC<ImageInputProps> = ({images, setImages}) => {
     const [imageInputValue, setImageInputValue] = React.useState('');
 
     const handlePaste = (url: string) => {
-        console.log(url)
         setImageInputValue('');
-        if (images.length >= 5) return 
-        console.log(1)
+        if (images.length >= 5) return
         setImages([...images, url])
     }
 

@@ -10,7 +10,7 @@ const corsOptions = {
 }
 
 export const launchDB = async() => {
-    const port = 3000; // default port to listen
+    const port = 8080; // default port to listen
 
     return await connectToDatabase()
         .then(() => {
