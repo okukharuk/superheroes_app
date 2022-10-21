@@ -20,7 +20,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({onCreated}) => {
     const { handleCreate } = useHandleApi();
 
     const handleCreateButton = () => {
-        const newSuperhero: ISuperhero = {
+        const newSuperhero = {
             nickname: nickname,
             real_name: realName,
             origin_description: originDescription,

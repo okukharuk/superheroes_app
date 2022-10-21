@@ -22,6 +22,7 @@ const ModalEdit: React.FC<ModalEditProps> = ({onEdited, superhero}) => {
 
     const handleEditButton = () => {
         const updatedSuperhero: ISuperhero = {
+            _id: superhero._id,
             nickname: nickname,
             real_name: realName,
             origin_description: originDescription,
@@ -30,7 +31,7 @@ const ModalEdit: React.FC<ModalEditProps> = ({onEdited, superhero}) => {
             Images: uploadedImages,
         }
         setIsValid(true);
-        const isWrong = (Object.keys(updatedSuperhero) as (keyof typeof updatedSuperhero)[]).some((key) => {return updatedSuperhero[key]?.length == 0});
+        const isWrong = (Object.keys(updatedSuperhero) as (keyof typeof updatedSuperhero)[]).some((key) => {return key == "_id" ? false : updatedSuperhero[key]?.length == 0});
         setIsValid(!isWrong);
         setTimeout(() => setIsValid(true), 2000);
         if(!isWrong) {

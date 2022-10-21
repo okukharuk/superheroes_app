@@ -14,8 +14,8 @@ export const superheroAPI = createApi({
             providesTags: result => ['Superhero']
         }),
         getSuperhero: build.query<ISuperhero, string>({
-            query: (name) => ({
-                url: `/superheroes/${name}`,
+            query: (_id) => ({
+                url: `/superheroes/${_id}`,
             }),
             providesTags: result => ['Superhero']
         }),
@@ -29,7 +29,7 @@ export const superheroAPI = createApi({
         }),
         updateSuperhero: build.mutation<ISuperhero, ISuperhero>({
             query: (superhero) => ({
-                url: `/superheroes/${superhero.nickname}`,
+                url: `/superheroes/${superhero._id}`,
                 method: 'PUT',
                 body: superhero
             }),
@@ -37,7 +37,7 @@ export const superheroAPI = createApi({
         }),
         deleteSuperhero: build.mutation<ISuperhero, ISuperhero>({
             query: (superhero) => ({
-                url: `/superheroes/${superhero.nickname}`,
+                url: `/superheroes/${superhero._id}`,
                 method: 'DELETE',
             }),
             invalidatesTags: ['Superhero']

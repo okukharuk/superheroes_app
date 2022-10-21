@@ -8,6 +8,6 @@ export default class Superhero {
         public superpowers: string,
         public catch_phrase: string,
         public Images: string[],
-        public id?: ObjectId
+        public _id?: ObjectId
     ) {}
 }
