@@ -3,6 +3,7 @@ import { Modal } from 'react-bootstrap';
 import { defaultSuperhero } from '../consts/consts';
 import useHandleApi from '../hooks/useHandleApi';
 import { ISuperhero } from '../models/ISuperhero';
+import LoadingIcon from '../public/svgs/LoadingIcon';
 import { superheroAPI } from '../services/SuperheroService';
 import ModalCreate from './ModalCreate';
 import ModalDelete from './ModalDelete';
@@ -18,11 +19,16 @@ const SuperheroList = () => {
     const [editIsOpen, setEditIsOpen] = React.useState(false);
     const [currentSuperhero, setCurrentSuperhero] = React.useState<ISuperhero>(defaultSuperhero);
 
-    React.useEffect(() => {
-        console.log(superheroes)
-    }, [superheroes])
     return (
-        <div className='flex flex-col items-center overflow-y-scroll h-full no-scrollbar'>
+        <div className='flex flex-col justify-center items-center overflow-y-scroll h-full no-scrollbar'>
+            {error && 
+                <div className='text-4xl text-center'>
+                    Something went wrong, please reload the page
+                </div>
+            }
+            {isLoading &&
+                <LoadingIcon />
+            }
             {superheroes && superheroes.map((superhero) => {
                 return (
                     <SuperheroCard 
@@ -33,6 +39,11 @@ const SuperheroList = () => {
                     />
                 )
             })}
+            {superheroes?.length == 0 &&
+                <div className='text-4xl text-center'>
+                    There are no posts for now, but you can change it 
+                </div>
+            }
             <ModalWindow isOpen={deleteIsOpen} size="small" onBackgroundClick={() => setDeleteIsOpen(false)}>
                 <ModalDelete superhero={currentSuperhero} handleNoClick={() => setDeleteIsOpen(false)}/>
             </ModalWindow>
