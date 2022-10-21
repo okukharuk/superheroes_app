@@ -45,7 +45,7 @@ const SuperheroCard: React.FC<SuperheroCardProps> = ({
             </div>
             <Collapse in={collapseOpen}>
                 <div>
-                    {superhero.Images.slice(1, superhero.Images.length - 1).map((image) => {
+                    {superhero.Images.slice(1, superhero.Images.length).map((image) => {
                         return <img src={image}/>
                     })}
                     <div className='text-3xl font-bold'>Real name: {superhero.real_name}</div>
