@@ -20,7 +20,7 @@ const SuperheroList = () => {
     const [currentSuperhero, setCurrentSuperhero] = React.useState<ISuperhero>(defaultSuperhero);
 
     return (
-        <div className='flex flex-col justify-center items-center overflow-y-scroll h-full no-scrollbar'>
+        <div className='flex flex-col items-center overflow-y-scroll h-full no-scrollbar'>
             {error && 
                 <div className='text-4xl text-center'>
                     Something went wrong, please reload the page
